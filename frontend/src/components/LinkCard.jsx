@@ -7,7 +7,8 @@ import {
 
 export default function LinkCard({ link, onDelete }) {
   const [copied, setCopied] = useState(false);
-  const shortUrl = `http://localhost:3000/${link.code}`;
+  const shortUrl = `https://tinylink-1-263w.onrender.com/${link.code}`;
+
 
   function handleCopy() {
     navigator.clipboard.writeText(shortUrl);

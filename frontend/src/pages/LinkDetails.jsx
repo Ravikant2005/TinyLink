@@ -26,7 +26,8 @@ export default function LinkDetails() {
   if (!link)
     return <div className="p-10 text-center text-gray-600">Loading...</div>;
 
-  const shortUrl = `http://localhost:3000/${link.code}`;
+  const shortUrl = `https://tinylink-1-263w.onrender.com/${link.code}`;
+
 
   function handleCopy() {
     navigator.clipboard.writeText(shortUrl);

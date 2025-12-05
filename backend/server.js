@@ -32,14 +32,14 @@ mongoose
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-);
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://tiny-link-two-sandy.vercel.app"
+  ],
+  methods: ["GET", "POST", "DELETE"],
+  credentials: false
+}));
 
 app.use(express.json());
 

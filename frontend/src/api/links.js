@@ -1,32 +1,23 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+const API = "https://tinylink-1-263w.onrender.com";
 
-export const client = axios.create({
-  baseURL: BASE_URL,
-  withCredentials: true,
-});
-
-// CREATE SHORT LINK
 export async function createShortLink(data) {
-  const res = await client.post("/links", data);
+  const res = await axios.post(`${API}/api/links`, data);
   return res.data;
 }
 
-// GET ALL LINKS
 export async function getLinks() {
-  const res = await client.get("/links");
+  const res = await axios.get(`${API}/api/links`);
   return res.data;
 }
 
-// GET ONE
 export async function getLink(code) {
-  const res = await client.get(`/links/${code}`);
+  const res = await axios.get(`${API}/api/links/${code}`);
   return res.data;
 }
 
-// DELETE
 export async function deleteLink(code) {
-  const res = await client.delete(`/links/${code}`);
+  const res = await axios.delete(`${API}/api/links/${code}`);
   return res.data;
 }

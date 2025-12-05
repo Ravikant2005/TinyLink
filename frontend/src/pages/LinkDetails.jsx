@@ -3,16 +3,18 @@ import { getLink } from "../api/links.js";
 import { useParams } from "react-router-dom";
 import {
   ClipboardDocumentCheckIcon,
-  ArrowTopRightOnSquareIcon,
   CalendarDaysIcon,
   ClockIcon,
-  CursorArrowRaysIcon
+  CursorArrowRaysIcon,
+  ArrowTopRightOnSquareIcon
 } from "@heroicons/react/24/outline";
 
 export default function LinkDetails() {
   const { code } = useParams();
   const [link, setLink] = useState(null);
   const [copied, setCopied] = useState(false);
+
+  const BASE = "https://tinylink-1-263w.onrender.com";
 
   useEffect(() => {
     load();
@@ -26,8 +28,7 @@ export default function LinkDetails() {
   if (!link)
     return <div className="p-10 text-center text-gray-600">Loading...</div>;
 
-  const shortUrl = `https://tinylink-1-263w.onrender.com/${link.code}`;
-
+  const shortUrl = `${BASE}/${link.code}`;
 
   function handleCopy() {
     navigator.clipboard.writeText(shortUrl);
@@ -47,7 +48,13 @@ export default function LinkDetails() {
 
           <div>
             <p className="text-sm font-medium text-gray-500">Original URL</p>
-            <p className="text-lg break-all">{link.url}</p>
+            <a
+              href={link.url}
+              target="_blank"
+              className="text-lg text-[#007AFF] underline break-all"
+            >
+              {link.url}
+            </a>
           </div>
 
           <div>
@@ -55,7 +62,7 @@ export default function LinkDetails() {
             <a
               href={shortUrl}
               target="_blank"
-              className="text-[#007AFF] underline text-lg break-all"
+              className="text-lg text-[#007AFF] underline break-all"
             >
               {shortUrl}
             </a>
@@ -63,7 +70,13 @@ export default function LinkDetails() {
 
           <div>
             <p className="text-sm font-medium text-gray-500">Short Code</p>
-            <p className="text-lg">{link.code}</p>
+            <a
+              href={shortUrl}
+              target="_blank"
+              className="text-xl font-semibold text-[#007AFF] hover:underline"
+            >
+              {link.code}
+            </a>
           </div>
 
           <div className="flex items-center gap-2">
@@ -95,7 +108,6 @@ export default function LinkDetails() {
               <p className="text-lg font-semibold">{link.clicks}</p>
             </div>
           </div>
-
         </div>
 
         <button

@@ -18,7 +18,7 @@ return (
 <Route path="/" element={<Home />} />
 <Route path="/create" element={<CreateLink />} />
 <Route path="/dashboard" element={<DashBoard />} />
-<Route path="/link/:code" element={<LinkDetails />} />
+  <Route path="/details/:code" element={<LinkDetails />} />
 
 {/* <Route path="/analytics/:id" element={<Analytics />} /> */}
 </Routes>

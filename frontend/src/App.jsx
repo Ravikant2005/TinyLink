@@ -4,7 +4,7 @@ import NavBar from './components/NavBar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import CreateLink from './pages/CreateLink'
-import Dashboard from './pages/Dashboard'
+import DashBoard from './pages/DashBoard'
 import LinkDetails from './pages/LinkDetails'
 // import Analytics from './pages/Analytics'
 
@@ -17,7 +17,7 @@ return (
 <Routes>
 <Route path="/" element={<Home />} />
 <Route path="/create" element={<CreateLink />} />
-<Route path="/dashboard" element={<Dashboard />} />
+<Route path="/dashboard" element={<DashBoard />} />
 <Route path="/link/:code" element={<LinkDetails />} />
 
 {/* <Route path="/analytics/:id" element={<Analytics />} /> */}
